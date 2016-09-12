@@ -1,0 +1,38 @@
+<header id="region_header_ua" class="l-arizona-header bg-red">
+  <section class="container l-container">
+    <div class="row">
+      <a href="http://www.arizona.edu" title="The University of Arizona homepage" class="arizona-logo">
+        <img alt="The University of Arizona Wordmark Line Logo White" src="https://brand.arizona.edu/sites/default/files/digital-resources/ua_wordmark_line_logo_white_rgb.svg" class="arizona-line-logo">
+      </a>
+    </div>
+  </section>
+</header>
+<div class="container">
+  <div class="row">
+    <div id="site_identifier">
+      {% assign custom_url = site.url | append: site.baseurl %}
+      {% assign full_base_url = site.github.url | default: custom_url %}
+      <h1><a class="site-title" href="{{ full_base_url }}/">{{ site.title | escape }}</a></h1>
+    </div>
+  </div>
+</div>
+<div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="row">
+      <div class="navbar-header">
+        <button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          {% for my_page in site.pages %}
+            {% if my_page.title %}
+            <li><a href="{{ my_page.url | prepend: full_base_url }}">{{ my_page.title | escape }}</a></li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
